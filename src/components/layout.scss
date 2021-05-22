@@ -1,0 +1,10 @@
+@import "../styles/app.scss";
+
+.wrapper{
+    margin: 15px;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    z-index: 9999;
+}
+

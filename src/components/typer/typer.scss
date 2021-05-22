@@ -1,0 +1,12 @@
+@import "../../styles/app.scss";
+
+.cursor{
+    border-left: 0.1em solid $font-color;
+    animation: blink .7 steps(1) infinite;
+}
+@keyframes blink {
+    50%{
+        border-color: transparent;
+    }
+    
+}

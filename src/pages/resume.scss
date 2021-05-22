@@ -1,0 +1,79 @@
+@import "../styles/app.scss";
+
+.container {
+    grid-template-columns: 290px ;
+    max-width: 1440px;
+    width: 100%;
+    height: calc(100vh-30px);
+    background-color: #1e1e28;
+    
+    
+    
+    
+    
+}
+
+.side {
+    grid-column: 1/2;
+    width: 290px;
+    &__header{
+        padding: 30px;
+        height: 235px;
+        width: 100%;
+        background: linear-gradient(159deg, rgba(37, 37, 50, 0.98) 0%, rgba(35, 35, 45, 0.98) 100%);
+        z-index: 9999;
+        position:absolute;
+        top: 0;
+        left: 0;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        &__avater{
+            width: 90px;
+            height: 90px;
+            position: relative;
+            margin: 0 auto;
+            border-radius: 50%;
+            img {
+                width: 100%;
+                border-radius: 50%;
+                z-index: 9999;
+                
+            }
+        }
+        &__name{
+            font-size: large;
+            font-weight: bolder;
+            
+        }
+    }
+}
+.content{
+    grid-column: 2/3;
+    position: relative;
+    background: rgba(30, 30, 40, 0.88);
+    &__bg{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+        background-position: center;
+        background-image: url(../Images/bg.jpg)  ;
+        height: 400px;
+        &__overly{
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 30, 40, 0.93)), color-stop(70%, rgba(30, 30, 40, 0.96)), color-stop(80%, rgba(30, 30, 40, 0.99)), to(#1e1e28));
+        position: relative;
+        width: 100%;
+        height: 100%;
+        
+       }
+    }
+    
+    &__row{
+        padding: 0 30px;
+    }
+    &__header {
+        position: relative;
+        padding-top: 30px;
+    }
+}

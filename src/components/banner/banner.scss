@@ -1,0 +1,57 @@
+@import "../../styles/app.scss";
+
+.banner {
+    background-image: url(../../Images/bg.jpg);
+    overflow: hidden;
+    top: 0;
+    background-position:30%;
+    width: 100%;
+    &__overly{
+        position: relative;
+        background-image: linear-gradient(rgba(45, 45, 58, 0.9) 10%, rgba(45, 45, 58, 0.7) 50%, rgba(45, 45, 53, 0.7) 70%);
+        padding: 60px;
+        background-position: 75% 28%;
+        display: flex;
+    }
+    &__info {
+        
+        padding: 20px 0;
+        &__title {
+            margin-bottom: 15px;
+            font-size: 36px;
+        }
+
+        &__body {
+            margin-bottom: 25px;
+            font-size: $font-size-larger;
+
+            i {
+                color: map-get($map: $Dark-themes, $key: primary);
+            }
+        }
+        
+        &__btn{
+            margin-bottom: 15px;
+            button {
+                    background: green;
+                    border: none;
+                    margin-right: 15px;
+                    border-radius: 10px;
+                    color: white;
+                    padding: 0 35px;
+                    height: 45px;
+                    font-size: 11px;
+            }
+        }
+    }
+    
+    &__image{
+        width: 320px;
+        position: absolute ;
+        right: 30px;
+        bottom: 0;
+        img{
+            width: 320px;
+        }
+    }
+}

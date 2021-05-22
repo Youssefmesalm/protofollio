@@ -1,0 +1,25 @@
+@use "sass:map";
+
+
+/*
+ * typography
+ * ======================================================================== */
+$font-size-initial: 14px; // reset default browser value from 16px to 13px
+$font-size-base: 1rem !default;
+$font-size-lg: 1.25rem !default;
+$font-size-sm: 0.875rem !default;
+$font-size-larger: 1.1rem;
+$font-size-mini: 0.9rem;
+$font-size-index: 0.7rem;
+
+$font-family-base: "Poppins", sans-serif;
+
+// Color system
+//
+
+$Dark-themes: (
+  primary: #4CAF50,
+  
+);
+$background : #191923;
+$font-color : white
