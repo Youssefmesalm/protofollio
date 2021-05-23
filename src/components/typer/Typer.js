@@ -48,7 +48,7 @@ class Typer extends Component {
   render() {
     const { text, startTag, endTag } = this.props;
     return (
-      <div>
+      <div className='typer'>
         <span>
           {"<"}
           <i>code</i>

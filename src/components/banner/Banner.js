@@ -11,12 +11,14 @@ class Banner extends Component {
       <div className="banner">
         <div className="banner__overly">
           <div className="banner__info">
-            <h1 className="banner__info__title">Discover My Amazing Art Space !</h1>
+            <h1 className="banner__info__title">Discover My Amazing <br/> Art Space !</h1>
             <div className="banner__info__body">
-              <Typer startTag={`I build `} dataText={[
+              <Typer
+                startTag={`I build `} 
+                dataText={[
                 "Amazing Web Interface",
                 "Creative Mobile Application"
-              ]}
+                ]}
                 typeSpeed={100} deleteSpeed={50} />
             </div>
             <div className="banner__info__btn">
