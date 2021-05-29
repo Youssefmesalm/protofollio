@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import styled, { keyframes }  from "styled-components";
 import {
   startTyping,
   startDeleting,
   typing,
   deleting,
 } from "../../redux/typer/typerActions";
-import "./typer.scss"
 
 class Typer extends Component {
   static propTypes = {
@@ -20,20 +20,21 @@ class Typer extends Component {
     ]),
     deleteSpeed: PropTypes.number,
     typeSpeed: PropTypes.number,
+    dispatch : PropTypes.func.isRequired
   };
 
   componentDidMount() {
     this.handleType();
   }
   handleType = () => {
-    const { speed,deleteSpeed,typeSpeed, isDeleting, text, loop, dataText } = this.props;
+    const { dispatch,speed,deleteSpeed,typeSpeed, isDeleting, text, loop, dataText } = this.props;
 
     const i = loop % dataText.length;
     const fullText = dataText[i];
     if (isDeleting) {
-      this.props.dispatch(deleting(fullText));
+      dispatch(deleting(fullText));
     } else if (!isDeleting) {
-      this.props.dispatch(typing(fullText));
+      dispatch(typing(fullText));
     }
 
     if (text === "" && isDeleting) {
@@ -46,22 +47,22 @@ class Typer extends Component {
   };
 
   render() {
-    const { text, startTag, endTag } = this.props;
+    const { text, startTag } = this.props;
     return (
-      <div className='typer'>
+      <TyperContainer>
         <span>
           {"<"}
           <i>code</i>
           {"> "} {startTag}
         </span>
         <span>{text}</span>
-        <span className="cursor"></span>
+        <Cursor></Cursor>
         <span>
           {" <"}
           <i>code</i>
           {">"}
         </span>
-      </div>
+      </TyperContainer>
     );
   }
 }
@@ -81,4 +82,19 @@ function selectors(state) {
 //     remove: (fullText) => dispatch(clear(fullText, props.deleteSpeed)),
 //   };
 // }
+
+const TyperContainer = styled.div`
+  font-size: ${(props)=>props.theme.fonts.sizes.larger};
+ 
+`
+const Blink = keyframes`
+    50% {
+        border-color: transparent;
+       } `
+const Cursor = styled.span`
+  animation: ${Blink} 0.7s steps(2) infinite;
+  border-left: 0.1em solid ${(props) => props.theme.colors.primary};
+`;
+
+
 export default connect(selectors)(Typer);

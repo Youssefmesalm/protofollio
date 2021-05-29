@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 //import PropTypes from 'prop-types';
-import "./resume.scss";
 // images
 import Banner from '../components/banner/Banner';
-import avater from '../Images/avater.jpeg'
+import avater from '../Images/avater.jpeg';
+import styled from 'styled-components'
 
 export default class Resume extends Component {
     static propTypes = {
@@ -12,7 +12,7 @@ export default class Resume extends Component {
 
     render() {
         return (
-            <div className="grid container">
+            <Container>
                 
                 <div className="side">
                     <div className="side__header">
@@ -34,7 +34,22 @@ export default class Resume extends Component {
                         <Banner/>
                     </div>                
                 </div>
-            </div>
+            </Container>
         )
     }
 }
+
+
+//####################### Style #################
+
+const Container = styled.div `
+    grid-template-columns: 290px ;
+    max-width: 1440px;
+    width: 100%;
+    height: calc(100vh-30px);
+    background-color: ${({theme})=> theme.colors.background};
+    
+    `
+const Sidebar= styled.div `
+    
+`

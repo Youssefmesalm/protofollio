@@ -1,6 +1,11 @@
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 html {
   font-weight: 100;
-  font-size: $font-size-initial;
+  font-size: ${({ theme }) => theme.fonts.sizes.initial};
 }
 *{
   padding: 0;
@@ -9,11 +14,12 @@ html {
 }
 body {
   overflow: hidden;
-  color: white;
-  background: $background;
+  color:${({ theme }) => theme.colors.text} ;
+  background: ${({ theme }) => theme.colors.background};
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: ${({ theme }) => theme.fonts.family.base};
 
 }
 
@@ -25,13 +31,6 @@ body,
   
 }
 
-a,
-.dropdown-item,
-.btn {
-  cursor: pointer;
-  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out, border-color 0.1s ease-in-out;
-  font-family: $font-family-base;
-}
 
 a:hover {
   color: inherit;
@@ -65,6 +64,7 @@ ol {
   padding-left: 0;
 }
 
-.grid{
-  display:grid;
-}
+
+`;
+
+export default GlobalStyle;

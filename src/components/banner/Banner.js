@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 //import PropTypes from "prop-types";
-import "./banner.scss";
 import bannerImg from "../../Images/banner.png";
 import Typer from "../typer/Typer";
+
 class Banner extends Component {
   static propTypes = {};
 
@@ -36,3 +36,4 @@ class Banner extends Component {
 }
 
 export default Banner;
+
