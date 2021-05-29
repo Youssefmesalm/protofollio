@@ -84,16 +84,19 @@ function selectors(state) {
 // }
 
 const TyperContainer = styled.div`
-  font-size: ${(props)=>props.theme.fonts.sizes.larger};
- 
+  font-size: ${(props)=>props.theme.fonts.sizes.xlarge};
+  i{
+    color: ${({theme})=>theme.colors.primary};
+  }
 `
 const Blink = keyframes`
     50% {
         border-color: transparent;
-       } `
+       }`
 const Cursor = styled.span`
-  animation: ${Blink} 0.7s steps(2) infinite;
+  animation: ${Blink} 0.7s steps(1) infinite;
   border-left: 0.1em solid ${(props) => props.theme.colors.primary};
+  margin-left: 6px;
 `;
 
 

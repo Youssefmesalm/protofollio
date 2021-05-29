@@ -1,55 +1,119 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 //import PropTypes from 'prop-types';
 // images
-import Banner from '../components/banner/Banner';
-import avater from '../Images/avater.jpeg';
-import styled from 'styled-components'
+import Banner from "../components/banner/Banner";
+import avater from "../Images/avater.jpeg";
+import bg from "../Images/bg.jpg";
+import styled from "styled-components";
+import Avatar from "../styles/Avatar";
+import Text from "../styles/Text";
+import GridItem from "../styles/GridItem";
+import Slider from "../components/slider.js/slider";
 
 export default class Resume extends Component {
-    static propTypes = {
-        
-    }
+  static propTypes = {};
 
-    render() {
-        return (
-            <Container>
-                
-                <div className="side">
-                    <div className="side__header">
-                        <div className="side__header__avater">
-                            <img src={avater} alt="" />
-                        </div>
-                        <div className="side__header__name">Yousuf Mesalm</div>
-                        <div className="side__header__jobtitle">Full Stack Web Developer,<br/>
-                            UI/UX Desginer,<br/> Dentist           
-                        </div>
-                    </div>
-                
-                </div>
-                <div className="content">
-                    <div className="content__bg">
-                        <div className="content__bg__overly"></div>
-                    </div>
-                    <div className="content__header content__row">
-                        <Banner/>
-                    </div>                
-                </div>
-            </Container>
-        )
-    }
+  render() {
+    return (
+      <Container>
+        <GridItem gridCol="1/2" width="290px">
+          <Header>
+            <Avatar>
+              <img src={avater} alt="Yousuf Mesalm" />
+            </Avatar>
+            <Name weight="base" size="xlarge">
+              Yousuf Mesalm
+            </Name>
+            <Job size="mini">
+              Full Stack Web Developer,
+              <br />
+              UI/UX Desginer,
+              <br />
+              Dentist
+            </Job>
+          </Header>
+        </GridItem>
+        <GridItem gridCol="2/3">
+          <Background>
+            <div className="overly"></div>
+          </Background>
+          <StyledContainer>
+            <Banner />
+          </StyledContainer>
+          <StyledContainer>
+            <Slider />
+          </StyledContainer>
+        </GridItem>
+      </Container>
+    );
+  }
 }
 
-
 //####################### Style #################
-
-const Container = styled.div `
-    grid-template-columns: 290px ;
-    max-width: 1440px;
+const StyledContainer = styled.div`
+  padding: 30px 30px 0;
+  position: relative;
+`;
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-position: center;
+  background-image: url(${bg});
+  height: 400px;
+  .overly {
+    background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(30, 30, 40, 0.93)),
+      color-stop(70%, rgba(30, 30, 40, 0.96)),
+      color-stop(80%, rgba(30, 30, 40, 0.99)),
+      to(#1e1e28)
+    );
+    position: relative;
     width: 100%;
-    height: calc(100vh-30px);
-    background-color: ${({theme})=> theme.colors.background};
-    
-    `
-const Sidebar= styled.div `
-    
-`
+    height: 100%;
+  }
+`;
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 290px;
+  max-width: 1440px;
+  width: 100%;
+  height: calc(100%-30px);
+  background-color: ${({ theme }) => theme.colors.background};
+`;
+
+const Header = styled.div`
+  padding: 30px;
+  height: 235px;
+  width: 100%;
+  background: linear-gradient(
+    159deg,
+    rgba(37, 37, 50, 0.98) 0%,
+    rgba(35, 35, 45, 0.98) 100%
+  );
+  z-index: 9999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  text-align: center;
+`;
+
+const Name = styled(Text)`
+  transition: color 0.5s ease-in-out;
+  padding-top: 10px;
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+    cursor: pointer;
+  }
+`;
+const Job = styled(Text)`
+  padding-top: 10px;
+  opacity: 0.65;
+  letter-spacing: 1px;
+`;
