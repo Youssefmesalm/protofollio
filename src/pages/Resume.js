@@ -9,6 +9,8 @@ import Avatar from "../styles/Avatar";
 import Text from "../styles/Text";
 import GridItem from "../styles/GridItem";
 import Slider from "../components/slider.js/slider";
+import Service from "../components/Service/Service";
+
 
 export default class Resume extends Component {
   static propTypes = {};
@@ -43,17 +45,54 @@ export default class Resume extends Component {
           <StyledContainer>
             <Slider />
           </StyledContainer>
+          <StyledContainer>
+            <Text size="large">My Services</Text>
+          </StyledContainer>
+          <ServiceList>
+            {Serviceslist.map(({ name, description }, i) => (
+              <Service key={i} title={name} description={description}></Service>
+            ))}
+          </ServiceList>
         </GridItem>
       </Container>
     );
   }
 }
 
+const Serviceslist = [
+  {
+    name: "Web Development",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.",
+  },
+  {
+    name: "UI/UX Design",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.",
+  },
+  {
+    name: "Web Development",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.",
+  },
+  {
+    name: "Web Development",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.",
+  },
+];
 //####################### Style #################
 const StyledContainer = styled.div`
   padding: 30px 30px 0;
   position: relative;
 `;
+const ServiceList = styled(StyledContainer)` 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+`
+
 const Background = styled.div`
   position: absolute;
   top: 0;

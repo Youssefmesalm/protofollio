@@ -6,10 +6,10 @@ export class Slider extends Component {
     return (
       <Container>
         <SliderItem plus content="Years Experience" number="100"></SliderItem>
+        <SliderItem  content="Years Experience" number="100"></SliderItem>
+        <SliderItem  content="Years Experience" number="100"></SliderItem>
         <SliderItem plus content="Years Experience" number="100"></SliderItem>
-        <SliderItem plus content="Years Experience" number="100"></SliderItem>
-        <SliderItem plus content="Years Experience" number="100"></SliderItem>
-        <SliderItem plus content="Years Experience" number="100"></SliderItem>
+        
       </Container>
     );
   }

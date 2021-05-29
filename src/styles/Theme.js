@@ -1,7 +1,7 @@
 export const dark = {
   colors: {
     primary: "#4CAF50",
-
+    secondary:"#8c8c8e",
     text: "#fff",
     background: "#191923",
   },
